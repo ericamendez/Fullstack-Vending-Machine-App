@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Vending Machine</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+  <div class="container">
+
+
+    <div class="row">
+
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-4">
+        <div class="well">
+          <h1>Welcome</h1>
+          <% if (user.local.email) { %>
+          <p>
+            <strong>id</strong>:
+            <%= user._id %><br>
+            <strong>email</strong>:
+            <%= user.local.email %><br>
+          </p>
+
+          <a href="/unlink/local" class="btn btn-default">Unlink</a>
+          <% } else { %>
+          <a href="/connect/local" class="btn btn-default">Connect Local</a>
+          <% } %>
+          <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+
+        </div>
+        <section class="itemUpdate">
+          <h2>Add an Item</h2>
+          <!-- IMAGE UPLOAD -->
+          <h3>Upload Item Picture</h3>
+          <img src="<%= user.profileImg %>" alt="">
+          <form action="/up" enctype="multipart/form-data" method="post">
+            <input type="file" name="file-to-upload">
+            <input class="btnN" type="submit" value="Upload">
+          </form>
+          <% if (user.local.email) { %>
+            <form id="formBreak" action="/messages" method="POST">
+              <span>User:
+              <input type="text" value="<%= user.local.email %>" name="name"></span>
+              <span>Item Name:
+              <input type="text" placeholder="Item" name="item"></span>
+              <span>Count:
+              <input type="text" placeholder="Amount" name="count"></span>
+              <span>Price:
+              <input type="text" placeholder="Price $" name="price"></span>
+              <button type="submit">Submit</button>
+            </form>
+            <% } %>
+        </section>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h3>Vending Machine</h3>
+      <ul class="messages itemList">
+        <% for(var i=0; i<messages.length; i++) {%>
+        <li class="message">
+          <span><img id="icon" src="<%= messages[i].image %>" alt=""></span>
+          <span>
+            <%= messages[i].item %></span>
+          <span>
+            <%= messages[i].count %></span>
+          <span>
+              <%= messages[i].price %></span>
+          <span><i class="fas fa-trash-alt"></i></span>
+        </li>
+        <% } %>
+      </ul>
+
+    </div>
+
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>

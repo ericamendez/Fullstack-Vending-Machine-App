@@ -1,0 +1,46 @@
+body{
+  margin:3%;
+}
+
+img{
+  width: 100px;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.well{
+  padding: 0 0 10px 10px;
+  border:1px solid black;
+  border-radius: 5px;
+}
+
+.itemUpdate form{
+  margin-bottom: 20px;
+}
+
+#formBreak span{
+  display: block;
+  margin:20px 0;
+}
+
+.itemList li{
+  list-style: none;
+}
+
+button, .btnN{
+  background-color: rgb(59,114,111);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover, .btnN:hover{
+  color: white;
+  background-color: black;
+}

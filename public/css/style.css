@@ -66,6 +66,7 @@ Pay Here Section
 #about{
   display: none;
   padding: 5px 15px 0 15px;
+  font-size: .9em;
 }
 
 .choice{

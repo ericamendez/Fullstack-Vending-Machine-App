@@ -7,28 +7,34 @@ const item = document.getElementsByClassName("item")
 const selectImg = document.querySelector("#selectImg")
 const selectPrice = document.querySelector("#pri")
 
+const avai = document.querySelector("#avai")
+let totalView = document.querySelector("#totalView")
+
 let source = ""
 let justPrice = ""
 let count = ""
-let toats = []
+let total = 0
+
 
 Array.from(item).forEach(function(element, i) {
+  // if item sold out
+  if(Number(item[i].querySelector("h3").textContent) == 0){
+    item[i].querySelector("img").src = "images/sold.jpg"
+  }
+  
   element.addEventListener('click', function() {
     const price = item[i].querySelector("h2").textContent
-    const itemImage = item[i].querySelector("img").src
-    selectImg.src = itemImage
-    selectPrice.textContent = price
-    source = itemImage.slice(22, itemImage.length)
-    justPrice = item[i].querySelector("h2").textContent
-    count = item[i].querySelector("h3").textContent
+    let itemImage = item[i].querySelector("img").src
+    // if the item is clicked and  is not sold out
+    if(Number(item[i].querySelector("h3").textContent) > 0){
+      selectImg.src = itemImage
+      selectPrice.textContent = price
+      source = itemImage.slice(22, itemImage.length)
+      justPrice = item[i].querySelector("h2").textContent
+      count = item[i].querySelector("h3").textContent
+    }
   })
-
 })
-
-// pay.addEventListener("click", function(e){
-//   payCon.style.display = "grid"
-//   aboutCon.style.display = "none"
-// })
 
 home.addEventListener("click", function(e) {
   payCon.style.display = "grid"
@@ -41,12 +47,11 @@ about.addEventListener("click", function(e) {
 })
 
 
-
-
 pay.addEventListener('click', function(e) {
   //cash float
   let mon = Number(justPrice.substr(1))
-  toats.push(mon)
+  total =+ mon
+  totalView.value = total
 
   fetch('messages', {
       method: 'put',

@@ -78,19 +78,28 @@
     </div>
     
   </div>
-  <section>
-    <h1>Refill Items</h1>
-    <section class="refill">
-      <% for(var i=0; i<messages.length; i++) {%>
-          <% if(messages[i].count == 0){ %>
-            <section>
-            <span><img  src="<%= messages[i].image %>" alt=""></span>
-            <span>Item Name: <%= messages[i].item %></span>
-          </section>
-            <% } %>
-      <% } %>
+  <section class="bottom">
+    <section class="reCon">
+      <h1>Refill Items</h1>
+      <section class="refill">
+        <% for(var i=0; i<messages.length; i++) {%>
+            <% if(messages[i].count == 0){ %>
+              <section>
+              <span><img  src="<%= messages[i].image %>" alt=""></span>
+              <span>Item Name: <%= messages[i].item %></span>
+            </section>
+              <% } %>
+        <% } %>
+      </section>
+    </section>
+    <section>
+      <h1>Stats</h1>
+      <section>
+        
+      </section>
     </section>
   </section>
+
   <script src="js/profile.js"></script>
   
 </body>

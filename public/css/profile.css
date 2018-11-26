@@ -81,15 +81,21 @@ button:hover, .btnN:hover{
 }
 
 .refill{
-  display: flex;
-  flex-wrap: nowrap;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.refill section{
-  width:300px;
+.reCon{
 }
 
 .refill img{
   height: 80px;
   width:90px;
+}
+
+
+.bottom{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
 }

@@ -10,6 +10,7 @@ const selectPrice = document.querySelector("#pri")
 let source = ""
 let justPrice = ""
 let count = ""
+let toats = []
 
 Array.from(item).forEach(function(element, i) {
   element.addEventListener('click', function() {
@@ -39,8 +40,14 @@ about.addEventListener("click", function(e) {
   payCon.style.display = "none"
 })
 
-pay.addEventListener('click', function() {
-  console.log(selectPrice.value)
+
+
+
+pay.addEventListener('click', function(e) {
+  //cash float
+  let mon = Number(justPrice.substr(1))
+  toats.push(mon)
+
   fetch('messages', {
       method: 'put',
       headers: {

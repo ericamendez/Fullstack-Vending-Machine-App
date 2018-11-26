@@ -19,9 +19,7 @@
         <% for(var i=0; i<9; i++) {%>
         <section class="item">
           <img src="<%= messages[i].image %>" alt="">
-          <h2>
-            <%= messages[i].price %>
-          </h2>
+          <h2>$<%= messages[i].price %></h2>
           <h3 class="count"><%= messages[i].count %></h3>
         </section>
         <% } %>

@@ -1,10 +1,10 @@
 # Fullstack-Vending-Machine-App
-Fullstack Vending Machine App
+A simple fullstack vending machine. The public see's 9 items with prices. The users click on the desired item, and pay for the item. There is then a logged in view (/login) where the vending machine owner can add new items, delete current items, see the total number of items left and how much money they have made so far.
 
-# Public Client Side Page 
+# Public Page 
 ![alt tag](screen.png)
 
-# Logged in Administrator Profile Page
+# Logged in Owner Profile Page
 ![alt tag](server.png)
 
 ## How It's Made:

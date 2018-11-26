@@ -1,14 +1,23 @@
 body{
-  margin:3%;
+  margin:1% 3%;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
-img{
-  width: 100px;
+.itemUpdate img{
+  height:100px;
+}
+
+#welcome{
+  background-color: rgb(59,114,111);
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+  margin:0 0 20px 0;
 }
 
 .container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-gap: 20px;
 }
 
@@ -27,8 +36,34 @@ img{
   margin:20px 0;
 }
 
+#cV{
+  margin-top:0;
+  text-align: center;
+}
+
+.itemList{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1px;
+  background-color: rgb(59,114,111);
+  padding:1px;
+  text-align: center;
+  
+}
+
 .itemList li{
   list-style: none;
+  background-color: white;
+  padding: 10px 0;
+}
+
+.itemList span{
+  display: block;
+}
+
+.itemList img {
+  height: 80px;
+  width:90px;
 }
 
 button, .btnN{
@@ -43,4 +78,18 @@ button, .btnN{
 button:hover, .btnN:hover{
   color: white;
   background-color: black;
+}
+
+.refill{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.refill section{
+  width:300px;
+}
+
+.refill img{
+  height: 80px;
+  width:90px;
 }

@@ -3,35 +3,36 @@
 
 <head>
   <title>Vending Machine</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body>
+    <h1 id="welcome">Admin Welcome</h1>
   <div class="container">
 
+    <!-- LOCAL INFORMATION -->
+    <div class="col-sm-4">
+      <div class="well">
+        <% if (user.local.email) { %>
+        <p>
+          <strong>id</strong>:
+          <%= user._id %><br>
+          <strong>email</strong>:
+          <%= user.local.email %><br>
+        </p>
+
+        <a href="/unlink/local" class="btn btn-default">Unlink</a>
+        <% } else { %>
+        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+        <% } %>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+
+      </div>
 
     <div class="row">
 
-      <!-- LOCAL INFORMATION -->
-      <div class="col-sm-4">
-        <div class="well">
-          <h1>Welcome</h1>
-          <% if (user.local.email) { %>
-          <p>
-            <strong>id</strong>:
-            <%= user._id %><br>
-            <strong>email</strong>:
-            <%= user.local.email %><br>
-          </p>
-
-          <a href="/unlink/local" class="btn btn-default">Unlink</a>
-          <% } else { %>
-          <a href="/connect/local" class="btn btn-default">Connect Local</a>
-          <% } %>
-          <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-
-        </div>
         <section class="itemUpdate">
           <h2>Add an Item</h2>
           <!-- IMAGE UPLOAD -->
@@ -58,16 +59,16 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <h3>Vending Machine</h3>
+      <h1 id="cV">Current Vending Machine Items</h1>
       <ul class="messages itemList">
-        <% for(var i=0; i<messages.length; i++) {%>
+        <% for(var i=0; i<9; i++) {%>
         <li class="message">
           <span><img id="icon" src="<%= messages[i].image %>" alt=""></span>
-          <span>
+          <span>Item Name:
             <%= messages[i].item %></span>
-          <span>
+          <span>Item Count:
             <%= messages[i].count %></span>
-          <span>
+          <span>Item Price:
               <%= messages[i].price %></span>
           <span><i class="fas fa-trash-alt"></i></span>
         </li>
@@ -75,9 +76,23 @@
       </ul>
 
     </div>
-
-    <script src="js/profile.js"></script>
-
+    
+  </div>
+  <section>
+    <h1>Refill Items</h1>
+    <section class="refill">
+      <% for(var i=0; i<messages.length; i++) {%>
+          <% if(messages[i].count == 0){ %>
+            <section>
+            <span><img  src="<%= messages[i].image %>" alt=""></span>
+            <span>Item Name: <%= messages[i].item %></span>
+          </section>
+            <% } %>
+      <% } %>
+    </section>
+  </section>
+  <script src="js/profile.js"></script>
+  
 </body>
 
 </html>
